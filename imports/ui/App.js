@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import axios from 'axios'; 
+import Csv from './Csv.js'
  
 import { Tasks } from '../api/tasks.js';
 import Task from './Task.js';
@@ -74,7 +75,7 @@ handleFaker(){
               <div className="fakePerson" key={fakePerson.id}>
               <div>
                 <input type="checkbox"/>
-               {/* <button className='delete' onClick={this.handleShowHide}>x</button> */}
+               
               <p>Name: {fakePerson}</p>
               <p>Street Address: {faker.address.streetAddress()}</p>
               <p>Second Address: {faker.address.secondaryAddress()}</p>
@@ -84,13 +85,15 @@ handleFaker(){
               <p>County: {faker.address.county()}</p>
               <p>Lat: {faker.address.latitude()}</p>
               <p>Long: {faker.address.longitude()}</p>
+
+             
               
               <button className="saveButton" onClick={()=>this.handleSave(fakePerson.id)}>Save Contact</button>
                </div>
               </div>
           )
         })
-        // console.log(typeof(finalFakes))
+      
         console.log(finalFakes)
     return (
         <div>
@@ -124,9 +127,7 @@ handleFaker(){
       <div className="lowerBox">
     <input className="numberFakes"type="text" onChange={(e) => this.numberFakes(e)} placeholder="0"/>
     <button className='fakerButtton' onClick={() => this.handleFaker()}>Create Fake People</button>
-    {/* {randomName} */}
-    {/* {randomEmail} */}
-    {/* {randomCard} */}
+    
     </div>
     <div className="fakePeople">
     {finalFakes}
@@ -137,7 +138,6 @@ handleFaker(){
 }
 export default withTracker(() => {
     return {
-    //   tasks: Tasks.find({}).fetch(),
       tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
       incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
     };

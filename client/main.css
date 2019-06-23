@@ -132,20 +132,20 @@ header .hide-completed {
 
 }
 .lowerBox{
-  border: 1px red solid;
+  /* border: 1px red solid; */
   display: flex;
   justify-content: center;
+  margin: 10px 0 0 0;
 
 }
 .fakePeople{
-  border: 1px white solid;
+  /* border: 1px white solid; */
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
-  overflow: scroll;
-    overflow-x: hidden;
-    flex-wrap: wrap;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+  
 }
 .fakePerson{
   color: white;
@@ -153,11 +153,4 @@ header .hide-completed {
   flex-direction: column;
   border: black 2px solid;
   margin: 10px;
-}
- .hide{
-    display: none;
-}
-
- .show{
-  display: show;
 }
